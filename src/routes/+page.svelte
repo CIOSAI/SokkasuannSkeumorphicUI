@@ -14,6 +14,7 @@
 <section>
 
   <div class='counter-panel'>
+    <span class='title'>Echo Ticker 2000</span>
     <Counter />
   </div>
 </section>
@@ -27,7 +28,19 @@
 		flex: 1;
 	}
 
+  .title{
+    width: 100%;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
   .counter-panel{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
     padding: 1em;
 		border-left: .4em solid var(--darken-color);
 		border-bottom: .4em solid var(--darken-color);
