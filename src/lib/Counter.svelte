@@ -20,9 +20,7 @@
 <div class="counter">
   <div class="button-wrap">
     <button on:click={() => (count -= 1)} aria-label="Decrease the counter by one">
-      <svg aria-hidden="true" viewBox="0 0 1 1">
-        <path d="M0,0.5 L1,0.5" />
-      </svg>
+      <span>-</span>
     </button>
   </div>
 
@@ -35,9 +33,7 @@
 
   <div class="button-wrap">
     <button on:click={() => (count += 1)} aria-label="Increase the counter by one">
-      <svg aria-hidden="true" viewBox="0 0 1 1">
-        <path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" />
-      </svg>
+      <span>+</span>
     </button>
   </div>
 </div>
@@ -50,12 +46,9 @@
 
   .counter .button-wrap{
 		width: 2em;
-		padding: 0;
-		border-left: .1em solid var(--darken-color);
-		border-bottom: .1em solid var(--darken-color);
-		border-right: .1em solid var(--secondary-color);
-		border-top: .1em solid var(--secondary-color);
-    border-radius: .2em;
+		padding: .1em;
+    background-color: var(--black-color);
+    border-radius: .3em;
     box-shadow: -.1em .1em .2em rgba(0,0,0,0.2);
 		font-size: 2rem;
   }
@@ -64,21 +57,27 @@
 		width: 100%;
     height: 100%;
 		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 0;
-    border-radius: .1em;
+		border-left: .1em solid var(--darken-color);
+		border-bottom: .1em solid var(--darken-color);
+		border-right: .1em solid var(--secondary-color);
+		border-top: .1em solid var(--secondary-color);
+    border-radius: .2em;
 		touch-action: manipulation;
 		background-color: var(--tertiary-color);
-    box-shadow: .2em -.2em .8em rgba(255, 255, 255, 0.3) inset;
+    box-shadow: .2em -.2em .3em rgba(255, 255, 255, 0.3) inset;
 		color: var(--text-color);
-		font-size: 2rem;
+    font-weight: 700;
+		font-size: 36px;
 	}
 
 	.counter .button-wrap:active {
     box-shadow: -.02em .02em .2em rgba(0,0,0,0.2);
 	}
+
+  .counter button span{
+    position: relative;
+    top: -.05em;
+  }
 
 	svg {
 		width: 25%;
@@ -92,7 +91,7 @@
 	}
 
 	.counter-viewport {
-		width: 8em;
+		width: 6em;
 		height: 4em;
 		overflow: hidden;
 		text-align: center;
@@ -106,7 +105,7 @@
 		height: 100%;
 		font-weight: 400;
 		color: var(--accent-color);
-		font-size: 4rem;
+		font-size: 72px;
 		align-items: center;
 		justify-content: center;
 	}
