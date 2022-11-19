@@ -96,6 +96,13 @@
 		overflow: hidden;
 		text-align: center;
 		position: relative;
+    margin: 0 1em;
+    background-color: var(--LC-background);
+		border-right: .2em solid var(--darken-color);
+		border-top: .2em solid var(--darken-color);
+		border-left: .2em solid var(--secondary-color);
+		border-bottom: .2em solid var(--secondary-color);
+    box-shadow: -.2em .2em .1em rgba(0, 0, 0, 0.3) inset;
 	}
 
 	.counter-viewport strong {
@@ -104,13 +111,15 @@
 		width: 100%;
 		height: 100%;
 		font-weight: 400;
-		color: var(--accent-color);
+		color: var(--LC-content);
 		font-size: 72px;
 		align-items: center;
 		justify-content: center;
 	}
 
 	.counter-digits {
+    font-family: var(--font-mono);
+    text-shadow: -.1em .1em .1em #0f2a3260;
 		position: absolute;
 		width: 100%;
 		height: 100%;

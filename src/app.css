@@ -2,7 +2,7 @@
 
 :root {
   font-family: 'Atkinson Hyperlegible', Roboto, Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Fira Mono', monospace;
+  --font-mono: 'Jetbrains Mono', monospace;
   --pure-white: #ffffff;
   --black-color: #2c264c;
   --primary-color: #ffedac;
@@ -13,6 +13,8 @@
   --text-color: #003e8a;
   --background-color-main: #98a9c0;
   --background-color-secondary: #6ccbad;
+  --LC-background: #587874;
+  --LC-content: #0f2a32;
   --background-without-opacity: rgba(255, 255, 255, 0.7);
   --column-width: 42rem;
   --column-margin-top: 4rem;
