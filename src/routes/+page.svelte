@@ -1,5 +1,6 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
+  import Slider from '$lib/Slider.svelte';
 </script>
 
 <svelte:head>
@@ -15,7 +16,14 @@
 
   <div class='counter-panel'>
     <span class='title'>Echo Ticker 2000</span>
+    <div style='height: 10px'/>
     <Counter />
+    <div style='height: 20px'/>
+    <div class='slider-container'>
+      <span class='label'>Chadness</span>
+      <Slider />
+    </div>
+    <div style='height: 30px'/>
   </div>
 </section>
 
@@ -36,11 +44,24 @@
     color: var(--text-color);
   }
 
+  .slider-container{
+    padding: .2em .7em;
+    border: 3px solid var(--text-color);
+    border-radius: 0 .4em .4em .4em;
+  }
+
+  .label{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
   .counter-panel{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: stretch;
     padding: 1em;
 		border-left: .4em solid var(--darken-color);
 		border-bottom: .4em solid var(--darken-color);
