@@ -3,8 +3,8 @@
   import Slider from '$lib/Slider.svelte';
   import Knob from '$lib/Knob.svelte';
 
-  let knob_value = 0;
-  $: console.log(knob_value)
+  let knob_values = {a: 0, d: 0, s: 0, r: 0};
+  $: console.log(knob_values)
 </script>
 
 <svelte:head>
@@ -29,8 +29,25 @@
     </div>
     <div style='height: 20px;'/>
     <div class='knob-container'>
-      <span class='label'>Poggerism</span>
-      <Knob bind:value={knob_value} max={1} min={0} pixelRange={200} />
+      <span class='label'>Envelope</span>
+      <div class='knob-array'>
+        <div class='knob-col'>
+          <span class='label'>A</span>
+          <Knob bind:value={knob_values.a} max={1} min={0} pixelRange={50} />
+        </div>
+        <div class='knob-col'>
+          <span class='label'>D</span>
+          <Knob bind:value={knob_values.d} max={1} min={0} pixelRange={50} />
+        </div>
+        <div class='knob-col'>
+          <span class='label'>S</span>
+          <Knob bind:value={knob_values.s} max={1} min={0} pixelRange={50} />
+        </div>
+        <div class='knob-col'>
+          <span class='label'>R</span>
+          <Knob bind:value={knob_values.r} max={1} min={0} pixelRange={50} />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -62,6 +79,15 @@
     padding: .2em .7em;
     border: 3px solid var(--text-color);
     border-radius: 0 .4em .4em .4em;
+  }
+
+  .knob-array{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .knob-col{
+    text-align: center;
   }
 
   .label{

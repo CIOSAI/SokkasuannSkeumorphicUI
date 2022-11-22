@@ -31,18 +31,18 @@
 	}
 </script>
 
-<div class="knob" style="--rotation: {rotation}" on:pointerdown={pointerDown} />
+<div class="knob" style="transform:rotate(calc({rotation} * 1rad))" on:pointerdown={pointerDown} />
 
 <style>
 	
 .knob {
 	display: block;
-	width: 190px;
-	height: 190px;
+	width: 40px;
+	height: 40px;
 	padding: 0;
 	border-radius: 50%;
 	background-image: conic-gradient(white 0%, white 2%, black 2%, black 98%, white 98%, white 100%);
-  transform: rotate(calc(var(--rotation) * 1rad));
+  /* transform: rotate(calc(var(--rotation) * 1rad)); */
   transform-origin: 50% 50%;
 }
 </style>
