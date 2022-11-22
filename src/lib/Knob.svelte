@@ -31,19 +31,51 @@
 	}
 </script>
 
-<div class="knob" style="transform:rotate(calc({rotation} * 1rad))" on:pointerdown={pointerDown} />
+<div class='knob-container'>
+  <div class="knob" style="transform:rotate(calc({rotation} * 1rad))" on:pointerdown={pointerDown} >
+    <svg width='100%' height='100%' viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor">
+        <path stroke-width="10" d="M50 40 l0 -50" />
+      </g>
+    </svg>
+  </div>
+</div>
 
 <style>
-	
-.knob {
-	display: block;
-	width: 40px;
-	height: 40px;
-	padding: 0;
-	border-radius: 50%;
-	background-image: conic-gradient(white 0%, white 2%, black 2%, black 98%, white 98%, white 100%);
-  /* transform: rotate(calc(var(--rotation) * 1rad)); */
-  transform-origin: 50% 50%;
-}
+  .knob-container{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: conic-gradient(from 45deg,
+      var(--secondary-color) 0deg 15deg,
+      var(--tertiary-color) 60deg 60deg,
+      var(--darken-color) 120deg 240deg,
+      var(--tertiary-color) 300deg 300deg,
+      var(--secondary-color) 345deg 360deg
+    );
+    box-shadow: -.15em .15em .05em .02em rgba(0,0,0,0.3);
+    border-radius: 50%;
+  }  
+
+  .knob {
+    display: block;
+    width: 80%;
+    height: 80%;
+    padding: 0;
+    border-radius: 50%;
+    color: var(--text-color);
+    background-color: var(--tertiary-color);
+    box-shadow: 0 0 .3em rgba(255, 255, 255, 0.3) inset;
+    transform-origin: 50% 50%;
+  }
+
+  .knob svg{
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
