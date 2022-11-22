@@ -1,6 +1,10 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
   import Slider from '$lib/Slider.svelte';
+  import Knob from '$lib/Knob.svelte';
+
+  let knob_value = 0;
+  $: console.log(knob_value)
 </script>
 
 <svelte:head>
@@ -23,7 +27,11 @@
       <span class='label'>Chadness</span>
       <Slider />
     </div>
-    <div style='height: 30px'/>
+    <div style='height: 20px;'/>
+    <div class='knob-container'>
+      <span class='label'>Poggerism</span>
+      <Knob bind:value={knob_value} max={1} min={0} pixelRange={200} />
+    </div>
   </div>
 </section>
 
@@ -45,6 +53,12 @@
   }
 
   .slider-container{
+    padding: .2em .7em;
+    border: 3px solid var(--text-color);
+    border-radius: 0 .4em .4em .4em;
+  }
+
+  .knob-container{
     padding: .2em .7em;
     border: 3px solid var(--text-color);
     border-radius: 0 .4em .4em .4em;
