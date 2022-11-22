@@ -32,19 +32,19 @@
       <span class='label'>Envelope</span>
       <div class='knob-array'>
         <div class='knob-col'>
-          <span class='label'>A</span>
+          <span class='label' style='user-select: none'>A</span>
           <Knob bind:value={knob_values.a} max={1} min={0} pixelRange={50} />
         </div>
         <div class='knob-col'>
-          <span class='label'>D</span>
+          <span class='label' style='user-select: none'>D</span>
           <Knob bind:value={knob_values.d} max={1} min={0} pixelRange={50} />
         </div>
         <div class='knob-col'>
-          <span class='label'>S</span>
+          <span class='label' style='user-select: none'>S</span>
           <Knob bind:value={knob_values.s} max={1} min={0} pixelRange={50} />
         </div>
         <div class='knob-col'>
-          <span class='label'>R</span>
+          <span class='label' style='user-select: none'>R</span>
           <Knob bind:value={knob_values.r} max={1} min={0} pixelRange={50} />
         </div>
       </div>
