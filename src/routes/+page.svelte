@@ -3,9 +3,12 @@
   import Slider from '$lib/Slider.svelte';
   import Knob from '$lib/Knob.svelte';
   import Screen from '$lib/Screen.svelte';
+  import Light from '$lib/Light.svelte';
 
+  let chadness = 0;
   let knob_values = {a: 0, d: 0, s: 0, r: 0};
   $: console.log(knob_values)
+  $: console.log(`chadness : ${chadness}`)
 </script>
 
 <svelte:head>
@@ -26,7 +29,7 @@
     <div style='height: 20px'/>
     <div class='slider-container'>
       <span class='label'>Chadness</span>
-      <Slider />
+      <Slider bind:value={chadness}/>
     </div>
     <div style='height: 20px;'/>
     <div class='knob-container'>
@@ -49,6 +52,7 @@
           <Knob bind:value={knob_values.r} max={1} min={0} pixelRange={50} />
         </div>
       </div>
+      <div style='height: 20px;'/>
     </div>
     <div style='height: 20px;'/>
     <div class='screen-container'>
@@ -64,6 +68,8 @@
         </svg>
       </Screen>
     </div>
+    <div style='height: 20px;'/>
+    <Light status={chadness>.5}/>
   </div>
 </section>
 

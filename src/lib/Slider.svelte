@@ -1,11 +1,10 @@
 <script lang="ts">
-  let slider_x = 0;
-  $: console.log(slider_x);
+  export let value = 0;
 </script>
 
 <div id='container'>
   <input type='range' min='0' max='1' step='0.00000001'
-    bind:value={slider_x}
+    bind:value
   >
 </div>
 
