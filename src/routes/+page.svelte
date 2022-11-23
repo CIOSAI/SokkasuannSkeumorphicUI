@@ -2,6 +2,7 @@
 	import Counter from '$lib/Counter.svelte';
   import Slider from '$lib/Slider.svelte';
   import Knob from '$lib/Knob.svelte';
+  import Screen from '$lib/Screen.svelte';
 
   let knob_values = {a: 0, d: 0, s: 0, r: 0};
   $: console.log(knob_values)
@@ -48,6 +49,20 @@
           <Knob bind:value={knob_values.r} max={1} min={0} pixelRange={50} />
         </div>
       </div>
+    </div>
+    <div style='height: 20px;'/>
+    <div class='screen-container'>
+      <Screen>
+        <svg width='100%' height='100%' viewBox="0 0 300 100">
+          <g fill="none" stroke="currentColor" stroke-width='10' stroke-linejoin="bevel">
+            <path d="M0 80 L5 80 
+              L{knob_values.a*100+5} 20 
+              l{knob_values.d*150} {60-knob_values.s*60} 
+              l{knob_values.r*100} {knob_values.s*60} L300 80
+            "/>
+          </g>
+        </svg>
+      </Screen>
     </div>
   </div>
 </section>
