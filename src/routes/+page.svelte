@@ -4,11 +4,41 @@
   import Knob from '$lib/Knob.svelte';
   import Screen from '$lib/Screen.svelte';
   import Light from '$lib/Light.svelte';
+  import ElectronicScreen from '$lib/ElectronicScreen.svelte';
 
   let chadness = 0;
   let knob_values = {a: 0, d: 0, s: 0, r: 0};
   $: console.log(knob_values)
   $: console.log(`chadness : ${chadness}`)
+
+  let clear
+  $: {
+    clearInterval(clear)
+    clear = setInterval(eScreenOut, 50)
+  }
+
+  let eScreenText = '';
+
+  function sdf(u, v, t){
+    t *= 2;
+    return Math.min(1, Math.max(0, 
+      Math.hypot(u-(.5+Math.cos(t)*.3), v-(.5+Math.sin(t)*.3))*4
+    ));
+  }
+
+  function eScreenOut(){
+    let sum = '';
+    for(let y=0; y<13; y++){
+      let row = '';
+      for(let x=0; x<29; x++){
+        row += ['@', '&', 'W', '$', '#', 'H', 'X', 'O',   '?', '!', '*', '=', '+', '~', '-', ' ',   ' '][
+          Math.floor(sdf(x/29, y/12, new Date().getTime()/1000)*16)
+        ];
+      }
+      sum+=row+'\n';
+    }
+    eScreenText = sum;
+  }
 </script>
 
 <svelte:head>
@@ -70,6 +100,10 @@
     </div>
     <div style='height: 20px;'/>
     <Light status={chadness>.5}/>
+    <div style='height: 20px;'/>
+    <div id='e-screen-container'>
+      <ElectronicScreen textContent={eScreenText}/>
+    </div>
   </div>
 </section>
 
@@ -132,5 +166,17 @@
 		background-color: var(--tertiary-color);
     box-shadow: -.1em .1em .2em rgba(0,0,0,0.2);
     font-size: 24px;
+  }
+
+  .screen-container{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #e-screen-container{
+    width: 245px;
+    height: 245px;
+    margin: 0 auto;
+    font-size: 12px;
   }
 </style>

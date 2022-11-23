@@ -15,7 +15,7 @@
 		overflow: hidden;
 		text-align: center;
 		position: relative;
-    margin: 0 1em;
+    margin: auto;
     background-color: var(--LC-background);
 		border-right: .2em solid var(--darken-color);
 		border-top: .2em solid var(--darken-color);
